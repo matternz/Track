@@ -21,7 +21,7 @@
           templateUrl: 'road.htm'
         });
     })
-      .controller('loginController', function ($scope) {
+      .controller('loginController', function ($scope, $location) {
         $scope.submit = function () {
           if ($scope.username === undefined) {
             console.log('Username is empty');
@@ -33,6 +33,7 @@
           }
           console.log($scope.username);
           console.log($scope.password);
+          $location.path('/road')
         };
       });
   </script>
