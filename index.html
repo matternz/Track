@@ -1,13 +1,36 @@
 <!doctype html>
-<html ng-app>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-  </head>
-  <body>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-app='login' ng-controller='loginController'>
     <form>
-      Username:<input type="text" name="Username"><br>
-      Password:<input type="text" name="Password">
-     <button type="reset">Clear</button>
-     </form>
-     </body>
+      Username:<input type="text" name="Username" ng-model='username'><br>
+      Password:<input type="text" name="Password" ng-model='password'>
+      <button type="reset">Clear</button>
+      <button ng-click=submit()> Log In</button>
+    </form>
+  </div>
+  <script>
+    var app = angular.module('login', []);
+    app.controller('loginController', function ($scope) {
+      $scope.submit = function () {
+        if($scope.username === undefined){
+          console.log('Username is empty');
+          return;
+        }
+        if($scope.password === undefined){
+          console.log('Password is empty');
+          return;
+        }
+        console.log($scope.username);
+        console.log($scope.password);
+      };  
+    });
+  </script>
+</body>
+
 </html>
