@@ -1,10 +1,17 @@
+
+
 #loginForm {
-  border: 2px solid #d11e1e;
+  border: 2px solid black;
+}
+
+#loginForm label{
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #loginForm input {
   width: 100%;
-  padding: 6px 30px;
+  padding: 5px 20px;
   margin: 10px auto;
   box-sizing: border-box;
 }
@@ -17,6 +24,7 @@
   width: 30%;
   padding: 10px;
   margin: 10px;
+  font-size: 20px;
 }
 
 #loginForm button:hover {
@@ -29,4 +37,8 @@
 
 .loginBtn:hover {
   background-color: #94ce82
+}
+
+.loginContainer {
+  padding: 15px;
 }
