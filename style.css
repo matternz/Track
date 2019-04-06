@@ -1,64 +1,44 @@
 
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    .header {
-      grid-area: header;
-      background-color: #f1f1f1;
-      padding: 30px;
-      text-align: center;
-      font-size: 35px;
-    }
-    
-    
-    .grid-container {
-      display: grid;
-      grid-template-areas: 
-        'header header header header header header' 
-        'left middle middle middle middle right' 
-        'footer footer footer footer footer footer';
-    } 
-    
-    .left,
-    .middle,
-    .right {
-      padding: 10px;
-    }
-    
-    
-    .left {
-      grid-area: left;
-    }
-    
-    
-    .middle {
-      grid-area: middle;
-    }
-    
-    
-    .right {
-      grid-area: right;
-    }
-    
-    
-    .footer {
-      grid-area: footer;
-      background-color: #f1f1f1;
-      padding: 10px;
-      text-align: center;
-    }
-    
-    @media (max-width: 600px) {
-      .grid-container  {
-        grid-template-areas: 
-          'header header header header header header' 
-          'left left left left left left' 
-          'middle middle middle middle middle middle' 
-          'right right right right right right' 
-          'footer footer footer footer footer footer';
-      }
+
+#loginForm {
+  border: 2px solid black;
+}
+
+#loginForm label{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#loginForm input {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.buttonWrapper {
+  text-align: center;
+}
+
+#loginForm button {
+  width: 30%;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+#loginForm button:hover {
+  opacity: 0.7;
+}
+
+.clearBtn:hover {
+  background-color: #ce8282
+}
+
+.loginBtn:hover {
+  background-color: #94ce82
+}
+
+.loginContainer {
+  padding: 15px;
+}
