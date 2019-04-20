@@ -56,11 +56,17 @@ body {
   display: grid;
   grid-template-areas:
     'id'
+    'idOutput'
     'code'
+    'codeOutput'
     'type'
+    'typeOutput'
     'section'
+    'sectionOutput'
     'location'
-    'gps';
+    'locationOutput'
+    'gps'
+    'gpsOutput';
 }
 
 .id {
@@ -85,4 +91,8 @@ body {
 
 .gps {
   grid-area: gps;
+}
+
+h3 {
+  text-decoration: red;
 }
