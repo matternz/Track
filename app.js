@@ -6,10 +6,11 @@ var app = angular.module('myApp', ['ngRoute']).config(function ($routeProvider) 
       })
       .when('/road', {
         templateUrl: 'road.htm', 
-        controller: 'loginController'
+        controller: 'roadController'
       })
       .when('/project', {
         templateUrl: 'project.htm',
+        controller: 'projectController'
       })
       ;
   });
@@ -29,4 +30,7 @@ var app = angular.module('myApp', ['ngRoute']).config(function ($routeProvider) 
     };
   });
   app.controller('roadController', function ($scope, $location) {
+    $scope.openRoadForm = function (){
+      console.log('open road form');
+    }
   });
