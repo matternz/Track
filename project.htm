@@ -1,46 +1,24 @@
-<div>
-        <form>
-            <label>ID: </label>
-            <br>
-            <label>Road: </label>
-            <br>
-            <label>Name: </label>
-            <br>
-            <label>Status: </label>
-            <br>
-            <label>StartDate: </label>
-            <br>
-            <label>EndDate: </label>
-            <br>
-            <label>Contractor: </label>
-            <br>
-            <label>Problems: </label>
-            <br>
-            <label>Author: </label>
-            <br>
-            <label>Text: </label>
-            <br>
-            <label>Comments: </label>
-            <br>
-            <label>Author: </label>
-            <br>
-            <label>Text: </label>
-            <br>
-            <label>Works: </label>
-            <br>
-            <label>Type: </label>
-            <br>
-            <label>Subcontractors: </label>
-            <br>
-            <label>Status: </label>
-            <br>
-        </form>
-        <div class='roadButtonContainer'>
-            <div class='roadButtons'>
-                <button>Add</button>
-                <button>Archive</button>
-                <button>Close</button>
-                <button ng-click=openProjectForm()>Open</button>
-            </div>
-        </div>
+<form id="roadForm">
+  <div class="roadOuterContainer">
+    <div class="roadButtonContainer">
+      <div class="roadButtons">
+        <button>Add</button>
+        <button>Archive</button>
+        <button>Close</button>
+      </div>
     </div>
+    <div class="roadInnerContainer">
+      <div class="roadObject">
+        <div class="id">
+          <h3>ID:</h3>
+        </div>
+        <div class="idOutput">1</div>
+        <div class="code">
+          <h3>Code:</h3>
+        </div>
+        <div class="codeOutput">SH1 South</div>
+        <button ng-click="openProjectForm()">View More</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -77,33 +77,42 @@ body {
     'location'
     'locationOutput'
     'gps'
-    'gpsOutput';
+    'gpsOutput'
+    ;
 }
 
-.id {
-  grid-area: id;
-}
-
-.code {
-  grid-area: code;
-}
-
-.type {
-  grid-area: type;
-}
-
-.section {
-  grid-area: section;
-}
-
-.location {
-  grid-area: location;
-}
-
-.gps {
-  grid-area: gps;
-}
-
-h3 {
-  text-decoration: red;
+.projectGrid {
+  display: grid;
+  grid-template-areas:
+  'id'
+  'idOutput'
+  'road'
+  'roadOutput'
+  'name'
+  'nameOutput'
+  'status'
+  'statusOutput'
+  'startDate'
+  'startDateOutput'
+  'endDate'
+  'endDateOutput'
+  'contractor'
+  'contractorOutput'
+  'problem'
+  'problemOutput'
+  'author'
+  'authorOutput'
+  'text'
+  'textOutput'
+  'comment'
+  'commentOutput'
+  'work'
+  'workOutput'
+  'type'
+  'typeOutput'
+  'subContractor'
+  'subContractorOutput'
+  'status'
+  'statusOutput'
+  ;
 }
