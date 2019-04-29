@@ -37,19 +37,30 @@ body {
 }
 
 .clearBtn:hover {
-  background-color: #ce8282
+  background-color: #ce8282;
 }
 
 .loginBtn:hover {
-  background-color: #94ce82
+  background-color: #94ce82;
 }
 
 .loginContainer {
   padding: 15px;
 }
 
-.roadContainer {
+.roadOuterContainer {
   border: 2px solid black;
+  height: 75%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.roadInnerContainer {
+  border: 1px solid black;
+}
+
+.roadObject {
+  border: 1px solid black;
 }
 
 .roadGrid {

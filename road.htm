@@ -1,38 +1,44 @@
-<form id='roadForm'>
-    <div class='roadContainer'>
-        <div class='roadGrid'>
-            <div class='id'>
-                <h3>ID:</h3>
-            </div>
-            <div class='idOutput'>1</div>
-            <div class='code'>
-                <h3>Code:</h3>
-            </div>
-            <div class='codeOutput'>SH1 South</div>
-            <div class='type'>
-                <h3>Type:</h3>
-            </div>
-            <div class='typeOutput'>state highway</div>
-            <div class='section'>
-                <h3>Section:</h3>
-            </div>
-            <div class='sectionOutput'>kapiti</div>
-            <div class='location'>
-                <h3>Location:</h3>
-            </div>
-            <div class='locationOutput'>kapiti interchange</div>
-            <div class='gps'>
-                <h3>GPS:</h3>
-            </div>
-            <div class='gpsOutput'>latitude xxxxx, longitude xxxxx</div>
-        </div>
-        <div class='roadButtonContainer'>
-            <div class='roadButtons'>
-                <button>Add</button>
-                <button>Archive</button>
-                <button>Close</button>
-                <button ng-click=openRoadForm()>Open</button>
-            </div>
-        </div>
+<form id="roadForm">
+  <div class="roadOuterContainer">
+    <div class="roadButtons">
+      <button>Add</button>
+      <button>Archive</button>
+      <button>Close</button>
     </div>
+    <div class="roadInnerContainer">
+      <div class="roadObject">
+        <div class="id">
+          <h3>ID:</h3>
+        </div>
+        <div class="idOutput">1</div>
+        <div class="code">
+                <h3>Code:</h3>
+              </div>
+              <div class="codeOutput">SH1 South</div>
+        <button ng-click="openRoadForm()">View More</button>
+      </div>
+      <div class="roadObject">
+        <div class="id">
+          <h3>ID:</h3>
+        </div>
+        <div class="idOutput">2</div>
+        <div class="code">
+                <h3>Code:</h3>
+              </div>
+              <div class="codeOutput">SH1 South</div>
+        <button ng-click="openRoadForm()">View More</button>
+      </div>
+      <div class="roadObject">
+        <div class="id">
+          <h3>ID:</h3>
+        </div>
+        <div class="idOutput">3</div>
+        <div class="code">
+                <h3>Code:</h3>
+              </div>
+              <div class="codeOutput">SH1 South</div>
+        <button ng-click="openRoadForm()">View More</button>
+      </div>
+    </div>
+  </div>
 </form>
