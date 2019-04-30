@@ -44,6 +44,13 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     console.log('closeForm')
     $mdDialog.hide()
   }
+  $scope.addRoad = function() {
+    console.log('add road form')
+    $mdDialog.show({
+      templateUrl: 'addRoad.htm',
+      controller: 'roadController'
+    })
+  }
 })
 
 app.controller('projectController', function($scope, $location, $mdDialog) {
@@ -57,5 +64,12 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
   $scope.closeForm = function() {
     console.log('closeForm')
     $mdDialog.hide()
+  }
+  $scope.addProject = function() {
+    console.log('add project form')
+    $mdDialog.show({
+      templateUrl: 'addProject.htm',
+      controller: 'projectController'
+    })
   }
 })
