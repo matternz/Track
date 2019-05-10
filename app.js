@@ -20,17 +20,50 @@ app.controller('loginController', function($scope, $location) {
   $scope.submit = function() {
     if ($scope.username === undefined) {
       console.log('Username is empty')
+      alert('Username is empty')
       return
     }
     if ($scope.password === undefined) {
       console.log('Password is empty')
+      alert('Password is empty')
       return
     }
-    console.log($scope.username)
-    console.log($scope.password)
-    $location.path('/road')
+
+    jsonData = requestJson($scope.username)
+
+    if (validateUser(jsonData, $scope.username, $scope.password)) {
+      $location.path('/road')
+      return
+    }
+    console.log('invalid username or password')
+
+    return
   }
 })
+
+function requestJson(username) {
+  var request = new XMLHttpRequest()
+  request.open(
+    'GET',
+    'https://track.sim.vuw.ac.nz/api/' + username + '/user_list.json',
+    false
+  )
+  request.send(null)
+  return JSON.parse(request.responseText)
+}
+
+function validateUser(json, username, password) {
+  var success = false
+  json.Users.forEach(function(element) {
+    if (element.LoginName == username) {
+      if (element.Password == password) {
+        console.log('success')
+        success = true
+      }
+    }
+  })
+  return success
+}
 
 app.controller('roadController', function($scope, $location, $mdDialog) {
   $scope.openRoadForm = function() {
