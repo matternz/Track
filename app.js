@@ -1,5 +1,8 @@
 var app = angular.module('myApp', ['ngRoute', 'ngMaterial'])
 
+var data = undefined
+var user = ''
+
 app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
@@ -29,7 +32,8 @@ app.controller('loginController', function($scope, $location) {
       return
     }
 
-    jsonData = requestJson($scope.username)
+    data = jsonData = requestJsonUsers($scope.username)
+    user = $scope.user
 
     if (validateUser(jsonData, $scope.username, $scope.password)) {
       $location.path('/road')
@@ -41,7 +45,7 @@ app.controller('loginController', function($scope, $location) {
   }
 })
 
-function requestJson(username) {
+function requestJsonUsers(username) {
   var request = new XMLHttpRequest()
   request.open(
     'GET',
@@ -66,6 +70,12 @@ function validateUser(json, username, password) {
 }
 
 app.controller('roadController', function($scope, $location, $mdDialog) {
+  console.log('road controller loaded')
+
+  roadData = requestJsonRoad()
+
+  console.log(roadData.Roads) //array
+
   $scope.openRoadForm = function() {
     console.log('open road form')
     $mdDialog.show({
@@ -73,10 +83,12 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
       controller: 'roadController'
     })
   }
+
   $scope.closeForm = function() {
     console.log('closeForm')
     $mdDialog.hide()
   }
+
   $scope.addRoad = function() {
     console.log('add road form')
     $mdDialog.show({
@@ -85,6 +97,17 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     })
   }
 })
+
+function requestJsonRoad() {
+  var request = new XMLHttpRequest()
+  request.open(
+    'GET',
+    'https://track.sim.vuw.ac.nz/api/' + user + '/road_dir.json',
+    false
+  )
+  request.send(null)
+  return JSON.parse(request.responseText)
+}
 
 app.controller('projectController', function($scope, $location, $mdDialog) {
   $scope.openProjectForm = function() {
