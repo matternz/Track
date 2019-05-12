@@ -74,7 +74,14 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
 
   roadData = requestJsonRoad()
 
-  console.log(roadData.Roads) //array
+  roadData.Roads.forEach(function(element){
+    $scope.Code = element.Code;
+    $scope.GPS = element.GPS;
+    $scope.ID = element.ID;
+    $scope.Location = element.Location;
+    $scope.Section = element.Section;
+    $scope.Type = element.Type;
+  })
 
   $scope.openRoadForm = function() {
     console.log('open road form')
