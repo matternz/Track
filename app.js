@@ -128,7 +128,7 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     console.log('open contractor form')
     $mdDialog.show({
       templateUrl: 'Contractor.htm', 
-      controller: 'projectContoller'
+      controller: 'projectController'
     })
  }
   $scope.closeForm = function() {
