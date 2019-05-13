@@ -131,6 +131,13 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
       controller: 'projectController'
     })
  }
+ $scope.problemLog = function() {
+  console.log('open Problem Log')
+  $mdDialog.show({
+    templateUrl: 'ProblemLog.htm', 
+    controller: 'projectController'
+  })
+}
   $scope.closeForm = function() {
     console.log('closeForm')
     $mdDialog.hide()
