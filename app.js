@@ -40,7 +40,7 @@ app.controller('loginController', function($scope, $location) {
       return
     }
     console.log('invalid username or password')
-
+    alert('invalid username or password')
     return
   }
 })
