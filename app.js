@@ -3,7 +3,7 @@ var app = angular.module('myApp', ['ngRoute', 'ngMaterial'])
 var data = undefined
 var user = ''
 
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'login.htm',
@@ -19,8 +19,8 @@ app.config(function($routeProvider) {
     })
 })
 
-app.controller('loginController', function($scope, $location) {
-  $scope.submit = function() {
+app.controller('loginController', function ($scope, $location) {
+  $scope.submit = function () {
     if ($scope.username === undefined) {
       console.log('Username is empty')
       alert('Username is empty')
@@ -41,11 +41,10 @@ app.controller('loginController', function($scope, $location) {
     }
     console.log('invalid username or password')
     alert('invalid username or password')
-    return
   }
 })
 
-function requestJsonUsers(username) {
+function requestJsonUsers (username) {
   var request = new XMLHttpRequest()
   request.open(
     'GET',
@@ -56,9 +55,9 @@ function requestJsonUsers(username) {
   return JSON.parse(request.responseText)
 }
 
-function validateUser(json, username, password) {
+function validateUser (json, username, password) {
   var success = false
-  json.Users.forEach(function(element) {
+  json.Users.forEach(function (element) {
     if (element.LoginName == username) {
       if (element.Password == password) {
         console.log('success')
@@ -69,21 +68,21 @@ function validateUser(json, username, password) {
   return success
 }
 
-app.controller('roadController', function($scope, $location, $mdDialog) {
+app.controller('roadController', function ($scope, $location, $mdDialog) {
   console.log('road controller loaded')
 
   roadData = requestJsonRoad()
 
-  roadData.Roads.forEach(function(element){
-    $scope.Code = element.Code;
-    $scope.GPS = element.GPS;
-    $scope.ID = element.ID;
-    $scope.Location = element.Location;
-    $scope.Section = element.Section;
-    $scope.Type = element.Type;
+  roadData.Roads.forEach(function (element) {
+    $scope.Code = element.Code
+    $scope.GPS = element.GPS
+    $scope.ID = element.ID
+    $scope.Location = element.Location
+    $scope.Section = element.Section
+    $scope.Type = element.Type
   })
 
-  $scope.openRoadForm = function() {
+  $scope.openRoadForm = function () {
     console.log('open road form')
     $mdDialog.show({
       templateUrl: 'roadDetail.htm',
@@ -91,12 +90,12 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     })
   }
 
-  $scope.closeForm = function() {
+  $scope.closeForm = function () {
     console.log('closeForm')
     $mdDialog.hide()
   }
 
-  $scope.addRoad = function() {
+  $scope.addRoad = function () {
     console.log('add road form')
     $mdDialog.show({
       templateUrl: 'addRoad.htm',
@@ -105,7 +104,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
   }
 })
 
-function requestJsonRoad() {
+function requestJsonRoad () {
   var request = new XMLHttpRequest()
   request.open(
     'GET',
@@ -116,37 +115,62 @@ function requestJsonRoad() {
   return JSON.parse(request.responseText)
 }
 
-app.controller('projectController', function($scope, $location, $mdDialog) {
-  $scope.openProjectForm = function() {
+app.controller('projectController', function ($scope, $location, $mdDialog) {
+  $scope.openProjectForm = function () {
     console.log('open project form')
     $mdDialog.show({
       templateUrl: 'projectDetail.htm',
       controller: 'projectController'
     })
   }
-  $scope.editContractor = function() {
+  $scope.editContractor = function () {
     console.log('open contractor form')
     $mdDialog.show({
-      templateUrl: 'Contractor.htm', 
+      templateUrl: 'Contractor.htm',
       controller: 'projectController'
     })
- }
- $scope.problemLog = function() {
-  console.log('open Problem Log')
-  $mdDialog.show({
-    templateUrl: 'ProblemLog.htm', 
-    controller: 'projectController'
-  })
-}
-  $scope.closeForm = function() {
+  }
+  $scope.problemLog = function () {
+    console.log('open Problem Log')
+    $mdDialog.show({
+      templateUrl: 'ProblemLog.htm',
+      controller: 'projectController'
+    })
+  }
+  $scope.closeForm = function () {
     console.log('closeForm')
     $mdDialog.hide()
   }
-  $scope.addProject = function() {
+  $scope.addProject = function () {
     console.log('add project form')
     $mdDialog.show({
       templateUrl: 'addProject.htm',
       controller: 'projectController'
     })
   }
+  projectData = requestJsonProject()
+
+  projectData.Projects.forEach(function (element) {
+    $scope.ID = element.ID
+    $scope.Road = element.Road
+    $scope.Name = element.Name
+    $scope.Status = element.Status
+    $scope.StartDate = element.StartDate
+    $scope.EndDate = element.EndDate
+    $scope.Contractor = element.Contractor
+    $scope.Problems = element.Problems
+    $scope.Comments = element.Comments
+    $scope.Works = element.Works
+  })
 })
+
+function requestJsonProject () {
+  var request = new XMLHttpRequest()
+  request.open(
+    'GET',
+    'https://track.sim.vuw.ac.nz/api/' + user + '/project_dir.json',
+    false
+  )
+  request.send(null)
+  return JSON.parse(request.responseText)
+}
