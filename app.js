@@ -7,7 +7,7 @@ app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'login.htm',
-      controller: 'loginController'
+      controller: 'loginController',
     })
     .when('/road', {
       templateUrl: 'road.htm',
@@ -37,6 +37,8 @@ app.controller('loginController', function ($scope, $location) {
 
     if (validateUser(jsonData, $scope.username, $scope.password)) {
       $location.path('/road')
+      $scope.headerShow = true
+      $scope.$digest
       return
     }
     console.log('invalid username or password')
@@ -69,7 +71,6 @@ function validateUser (json, username, password) {
 }
 
 app.controller('roadController', function ($scope, $location, $mdDialog) {
-  console.log('road controller loaded')
 
   roadData = requestJsonRoad()
 
