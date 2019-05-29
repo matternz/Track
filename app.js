@@ -7,7 +7,7 @@ app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'login.htm',
-      controller: 'loginController',
+      controller: 'loginController'
     })
     .when('/road', {
       templateUrl: 'road.htm',
