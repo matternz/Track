@@ -69,8 +69,6 @@ function validateUser (json, username, password) {
 }
 
 app.controller('roadController', function ($scope, $location, $mdDialog) {
-  console.log('road controller loaded')
-
   roadData = requestJsonRoad()
 
   roadData.Roads.forEach(function (element) {

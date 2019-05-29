@@ -1,3 +1,9 @@
+<div ng-show="headerShow">
+  <h1>Track</h1>
+  <a href="#!/road">Road</a>
+  <a href="#!/project">Project</a>
+</div>
+
 <form id="roadForm">
   <div class="roadOuterContainer">
     <div class="roadButtonContainer">
@@ -10,11 +16,11 @@
         <div class="id">
           <h3>ID:</h3>
         </div>
-        <div class="idOutput">{{ID}}</div>
+        <div class="idOutput">{{ ID }}</div>
         <div class="code">
           <h3>Code:</h3>
         </div>
-        <div class="codeOutput">{{Code}}</div>
+        <div class="codeOutput">{{ Code }}</div>
         <button ng-click="openProjectForm()">View More</button>
         <button>Archive</button>
         <button>Close</button>

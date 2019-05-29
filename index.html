@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css"
-    />
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+  <link rel="stylesheet"
+    href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
 
-    <script src="app.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
 
-  <body ng-app="myApp">
-    <div class="headerBar">
-      <h1>Track</h1>
-      <a href="#Road">Road</a>
-      <a href="#Project">Project</a>
-    </div>
+  <script src="app.js"></script>
 
-    <div ng-view></div>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-    <div class="footerBar">
-      <form action="#">
-        <input type="submit" value="Log Out" />
-      </form>
-    </div>
-  </body>
+<body ng-app="myApp">
+
+  <div ng-view></div>
+
+  <div class="footerBar">
+    <form action="#">
+      <input type="submit" value="Log Out" />
+    </form>
+  </div>
+</body>
+
 </html>
