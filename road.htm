@@ -1,30 +1,35 @@
 <div class="headerBar">
-    <h1>Track</h1>
-    <a href="#!/road">Road</a>
-    <a href="#!/project">Project</a>
-  </div>
-  
+  <h1>Track</h1>
+  <a href="#!/road">Road</a>
+  <a href="#!/project">Project</a>
+</div>
+
 <form id="roadForm">
   <div class="roadOuterContainer">
     <div class="roadButtons">
       <button ng-click="addRoad()">Add</button>
     </div>
 
-    <div class="roadInnerContainer">
-      <div class="roadObject">
-        <div class="id">
-          <h3>ID:</h3>
-        </div>
-        <div class="idOutput">{{ID}}</div>
-        <div class="code">
-          <h3>Code:</h3>
-        </div>
-        <div class="codeOutput">{{Code}}</div>
-        <button ng-click="openRoadForm()">View More</button>
-        <button>Archive</button>
-        <button>Close</button>
-      </div>
+    <ul style="list-style: none;">
+      <div class="roadInnerContainer">
+        <div class="roadObject">
+          <li ng-repeat='item in roads'>
+            <div class="id">
+              <h3>ID:</h3>
+            </div>
+            <div class="idOutput">{{item.ID}}</div>
+            <div class="code">
+              <h3>Code:</h3>
+            </div>
+            <div class="codeOutput">{{item.Code}}</div>
+            <button ng-click="openRoadForm()">View More</button>
+            <button>Archive</button>
+            <button>Close</button>
+    </ul>
+
   </div>
+  </div>
+
 </form>
 <div class="footerBar">
   <form action="#">

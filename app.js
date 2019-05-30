@@ -70,15 +70,7 @@ function validateUser (json, username, password) {
 
 app.controller('roadController', function ($scope, $location, $mdDialog) {
   roadData = requestJsonRoad()
-
-  roadData.Roads.forEach(function (element) {
-    $scope.Code = element.Code
-    $scope.GPS = element.GPS
-    $scope.ID = element.ID
-    $scope.Location = element.Location
-    $scope.Section = element.Section
-    $scope.Type = element.Type
-  })
+  $scope.roads = roadData.Roads
 
   $scope.openRoadForm = function () {
     console.log('open road form')
@@ -147,19 +139,7 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
     })
   }
   projectData = requestJsonProject()
-
-  projectData.Projects.forEach(function (element) {
-    $scope.ID = element.ID
-    $scope.Road = element.Road
-    $scope.Name = element.Name
-    $scope.Status = element.Status
-    $scope.StartDate = element.StartDate
-    $scope.EndDate = element.EndDate
-    $scope.Contractor = element.Contractor
-    $scope.Problems = element.Problems
-    $scope.Comments = element.Comments
-    $scope.Works = element.Works
-  })
+  $scope.projects = projectData.Projects
 })
 
 function requestJsonProject () {
