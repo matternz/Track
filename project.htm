@@ -11,18 +11,88 @@
         <button ng-click="addProject()">Add</button>
       </div>
     </div>
-    <ul style='list-style: none;'>
-      <li ng-repeat='item in projects'>
+    <ul style="list-style: none;">
+      <li ng-repeat="item in projects">
         <div class="roadInnerContainer">
           <div class="roadObject">
             <div class="id">
               <h3>ID:</h3>
             </div>
             <div class="idOutput">{{ item.ID }}</div>
-            <div class="code">
-              <h3>Code:</h3>
+
+            <div class="road">
+              <h3>Road:</h3>
             </div>
-            <div class="codeOutput">{{ item.Code }}</div>
+            <div class="roadOutput">{{ item.Road }}</div>
+
+            <div class="name">
+              <h3>Name:</h3>
+            </div>
+            <div class="nameOutput">{{ item.Name }}</div>
+
+            <div class="status">
+              <h3>Status:</h3>
+            </div>
+            <div class="statusOutput">{{ item.Status }}</div>
+
+            <div class="startDate">
+              <h3>StartDate:</h3>
+            </div>
+            <div class="startDateOutput">{{ item.StartDate }}</div>
+
+            <div class="endDate">
+              <h3>EndDate:</h3>
+            </div>
+            <div class="endDateOutput">{{ item.EndDate }}</div>
+
+            <div class="contractor">
+              <h3>Contractor:</h3>
+            </div>
+            <div class="contractorOutput">{{ item.Contractor }}</div>
+
+            <div class="problem">
+              <h3>###Problems:###</h3>
+            </div>
+      
+            <div class="problem author">
+              <h3>Author:</h3>
+            </div>
+            <div class="authorOutput" ng-repeat="pro in item.Problems">{{ pro.Author }}</div>
+
+            <div class="problem text">
+              <h3>Text:</h3>
+            </div>
+            <div class="textOutput" ng-repeat="pro in item.Problems">{{ pro.Text }}</div>
+
+            <div class="author">
+                <h3>Author:</h3>
+              </div>
+              <div class="authorOutput" ng-repeat="com in item.Problems">{{ com.Author }}</div>
+
+            <div class="comment">
+              <h3>Comments:</h3>
+            </div>
+            <div class="commentOutput" ng-repeat="com in item.Comments">{{ com.Text }}</div>
+
+            <div class="work">
+              <h3>###Works:###</h3>
+            </div>
+
+            <div class="work type">
+              <h3>Type:</h3>
+            </div>
+            <div class="typeOutput" ng-repeat="wor in item.Works">{{ wor.Type }}</div>
+
+            <div class="work subContractor">
+              <h3>SubContractors:</h3>
+            </div>
+            <div class="subContractorOutput" ng-repeat="wor in item.Works">{{ wor.SubContractors }}</div>
+
+            <div class="status">
+              <h3>Status:</h3>
+            </div>
+            <div class="statusOutput" ng-repeat="wor in item.Works">{{ wor.Status }}</div>
+
             <button ng-click="openProjectForm()">View More</button>
             <button>Archive</button>
             <button>Close</button>

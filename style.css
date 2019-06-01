@@ -1,5 +1,5 @@
 html {
-  background-color: #88BBD6;
+  background-color: #88bbd6;
 }
 
 body {
@@ -7,14 +7,14 @@ body {
   min-width: 750px;
   padding: 10px;
   margin: auto;
-  background-color: #99d3DF;
+  background-color: #99d3df;
 }
 
 footer {
   background-color: #94ce82;
 }
 
-.headerBar a{
+.headerBar a {
   float: center;
   color: #1ab2ff;
   text-align: right;
@@ -70,11 +70,15 @@ footer {
   height: 75%;
   overflow: scroll;
   overflow-x: hidden;
-  background-color: #CDCDCD;
+  background-color: #cdcdcd;
 }
 
 .roadInnerContainer {
   border: 1px solid black;
+}
+
+.roadObject:hover {
+  background-color: #cff3c5;
 }
 
 .roadObject {
@@ -102,7 +106,7 @@ footer {
 .projectGrid {
   display: grid;
   grid-template-areas:
-    'id''idOutput''road''roadOutput'
+    'id' 'idOutput' 'road' 'roadOutput'
     'name'
     'nameOutput'
     'status'

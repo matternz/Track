@@ -140,6 +140,7 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
   }
   projectData = requestJsonProject()
   $scope.projects = projectData.Projects
+  console.log(projectData.Projects)
 })
 
 function requestJsonProject () {
