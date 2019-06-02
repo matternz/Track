@@ -130,3 +130,16 @@ footer {
     'status'
     'statusOutput';
 }
+.ProblemLog {
+  display: grid;
+  grid-template-areas:
+   'author'
+   'authorInput'
+   'date'
+   'dateInput'
+   'description'
+   'dInput'
+   'radio'
+   'radio1'
+   'radio2';
+}

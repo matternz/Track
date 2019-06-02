@@ -1,12 +1,15 @@
 <form id= 'ProblemLog'>
     <button ng-click="closeForm()">Close</button>
     <p>________________________________________________________</p>
-            Author:<br>
-        <input type="text">
-        <br>
-        Description:<br>
-        <input type="text">
-        <br><br>
-        <input type="submit" value="Submit">
+    <div class="author"> Author </div>
+     <div class="authorInput"><input type= "text">    
+    </div>
+    <div class="date">Date</div> 
+    <div class="dateInput"><input type= "date">
+    </div>
+    <div class= "description">Description </div>
+    <div class="dInput"><input type= "text">  
+    </div>
+            <input type="submit" onclick="alert('Problem Logged Sucessfully')" value="Submit">
         <button type="reset" value="Reset">Reset</button>
  </form>
