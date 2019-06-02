@@ -72,6 +72,14 @@ app.controller('roadController', function ($scope, $location, $mdDialog) {
   roadData = requestJsonRoad()
   $scope.roads = roadData.Roads
 
+  $scope.viewMore = function () {
+    $scope.view = true
+  }
+
+  $scope.viewLess = function () {
+    $scope.view = false
+  }
+
   $scope.closeForm = function () {
     console.log('closeForm')
     $mdDialog.hide()
@@ -83,6 +91,11 @@ app.controller('roadController', function ($scope, $location, $mdDialog) {
       templateUrl: 'addRoad.htm',
       controller: 'roadController'
     })
+  }
+
+  $scope.logOut = function () {
+    console.log('log out')
+    $location.path('/')
   }
 })
 
@@ -98,7 +111,6 @@ function requestJsonRoad () {
 }
 
 app.controller('projectController', function ($scope, $location, $mdDialog) {
-
   $scope.editContractor = function () {
     console.log('open contractor form')
     $mdDialog.show({
@@ -124,6 +136,19 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
       controller: 'projectController'
     })
   }
+  $scope.logOut = function () {
+    console.log('log out')
+    $location.path('/')
+  }
+
+  $scope.viewMore = function () {
+    $scope.view = true
+  }
+
+  $scope.viewLess = function () {
+    $scope.view = false
+  }
+
   projectData = requestJsonProject()
   $scope.projects = projectData.Projects
   console.log(projectData.Projects)
