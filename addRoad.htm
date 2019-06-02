@@ -1,15 +1,20 @@
-<form>
+<form id='addRoad'>
   <button ng-click="closeForm()">Close</button>
-    <label>ID</label>
-    <input type='text'>
-    <label>Code</label>
-    <input type='text'>
-    <label>Type</label>
-    <input type='text'>
-    <label>Section</label>
-    <input type='text'>
-    <label>Location</label>
-    <input type='text'>
-    <label>GPS</label>
-    <input type='text'>
-  </form>
+  <p>________________________________________________________</p>
+  <div class="ID">ID</div>
+  <div class="IdInput"><input type='text'></div>
+  <div class="code">Code</div>
+  <div class="codeInput"><input type='text'></div>
+  <div class="type">Type</div>
+  <div class="typeInput"><input type='text'></div>
+  <div class="section">Section</div>
+  <div class="sectionInput"><input type='text'></div>
+  <div class="location">Location</div>
+  <div class="locationInput"><input type="text"></div>
+  <div class="gps">GPS</div>
+  <div class="gpsInput"><input type='text'></div>
+  <button ng-click="closeForm()" input type="submit" onclick="alert('Road added Sucessfully')"
+    value="Submit">Submit</button>
+  <button type="reset" value="Reset">Reset</button>
+
+</form>

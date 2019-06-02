@@ -147,3 +147,30 @@ footer {
    'radio1'
    'radio2';
 }
+.AddProject {
+  display: grid;
+  grid-template-areas:
+   'ID'
+   'IdInput'
+   'road'
+   'roadInput'
+   'name'
+   'nameInput'
+   'status'
+   'statusInput';
+  
+}
+.AddRoad {
+  display: grid
+  grid-template-areas:
+  'ID'
+  'IdInput'
+  'type'
+  'typeInput'
+  'section'
+  'sectionInput'
+  'location'
+  'locationInput'
+  'gps'
+  'gpsInput';
+}

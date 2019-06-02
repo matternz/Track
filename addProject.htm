@@ -1,15 +1,25 @@
-<form>
-    <button ng-click="closeForm()">Close</button>
-    <label>ID</label>
-    <input type='text'>
-    <label>Code</label>
-    <input type='text'>
-    <label>Type</label>
-    <input type='text'>
-    <label>Section</label>
-    <input type='text'>
-    <label>Location</label>
-    <input type='text'>
-    <label>GPS</label>
-    <input type='text'>
-  </form>
+<form id='AddProject'>
+  <button ng-click="closeForm()">Close</button>
+  <p>________________________________________________________</p>
+  <div class="ID">ID</div>
+  <div class="IdInput"><input type='text'></div>
+  <div class="road">Road</div>
+  <div class="roadInput"><input type='text'></div>
+  <div class="name">Name</div>
+  <div class="nameInput"><input type='text'></div>
+  <div class="status">Status</div>
+  <div class="statusInput">
+    <select>
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+    </select>
+    <div class="startDate">Start Date</div>
+    <div class="startDateInput"><input type='date'></div>
+    <div class="endDate">End Date</div>
+    <div class="endDateInput"><input type='date'></div>
+     </div>
+  <button ng-click="closeForm()" input type="submit" onclick="alert('Project added Sucessfully')"
+    value="Submit">Submit</button>
+  <button type="reset" value="Reset">Reset</button>
+
+</form>
