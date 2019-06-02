@@ -72,14 +72,6 @@ app.controller('roadController', function ($scope, $location, $mdDialog) {
   roadData = requestJsonRoad()
   $scope.roads = roadData.Roads
 
-  $scope.openRoadForm = function () {
-    console.log('open road form')
-    $mdDialog.show({
-      templateUrl: 'roadDetail.htm',
-      controller: 'roadController'
-    })
-  }
-
   $scope.closeForm = function () {
     console.log('closeForm')
     $mdDialog.hide()
@@ -106,13 +98,7 @@ function requestJsonRoad () {
 }
 
 app.controller('projectController', function ($scope, $location, $mdDialog) {
-  $scope.openProjectForm = function () {
-    console.log('open project form')
-    $mdDialog.show({
-      templateUrl: 'projectDetail.htm',
-      controller: 'projectController'
-    })
-  }
+
   $scope.editContractor = function () {
     console.log('open contractor form')
     $mdDialog.show({
@@ -140,6 +126,7 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
   }
   projectData = requestJsonProject()
   $scope.projects = projectData.Projects
+  console.log(projectData.Projects)
 })
 
 function requestJsonProject () {
