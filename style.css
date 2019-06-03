@@ -15,6 +15,9 @@ footer {
 }
 .headerBar ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   background-color: #333;
 }
 
@@ -31,10 +34,6 @@ footer {
 
 .headerBar li a:hover:not(.active) {
   background-color: #111;
-}
-
-.headerBar .active {
-  background-color: #4CAF50;
 }
 
 
