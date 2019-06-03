@@ -103,7 +103,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'POST',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
+      'https://track.sim.vuw.ac.nz/api/' + 'testuser' + '/update.road.json',
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
@@ -188,16 +188,19 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    var roadData = {
+    var projectData = {
       ID: $scope.ID,
-      Code: $scope.Code,
-      Type: $scope.Type,
-      Section: $scope.Section,
-      Location: $scope.Location,
-      GPS: $scope.GPS
+      Road: $scope.Road,
+      Status: $scope.Status,
+      StartDate: $scope.StartDate,
+      EndDate: $scope.EndDate,
+      Contrator: $scope.Contrator,
+      Problems: [{Author: $scope.PAuthor, Text: $scope.PText}],
+      Comments: [{Author: $scope.CAuthor, Text: $scope.CText}],
+      Works: [{Type: $scope.WType, SubContrators: $scope.SubContrator, Status : $scope.Status}]      
     }
-    console.log(roadData)
-    request.send(JSON.stringify(roadData))
+    console.log(projectData)
+    request.send(JSON.stringify(projectData))
   }
 
   $scope.logOut = function() {
