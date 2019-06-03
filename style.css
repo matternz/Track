@@ -87,7 +87,7 @@ footer {
   background-color: #cdcdcd;
 }
 
-#AddProject button {
+#addProject button {
   background-color: #555;
   border: none;
   color: white;
@@ -100,7 +100,7 @@ footer {
   margin: 5px;
   width:100px;
 }
-#AddRoad button {
+#addRoad button {
   background-color: #555;
   border: none;
   color: white;
