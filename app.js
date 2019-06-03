@@ -33,8 +33,7 @@ app.controller('loginController', function($scope, $location) {
     }
 
     data = jsonData = requestJsonUsers($scope.username)
-    user = $scope.user
-
+    user = $scope.username
     if (validateUser(jsonData, $scope.username, $scope.password)) {
       $location.path('/road')
       return
@@ -72,6 +71,21 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
   roadData = requestJsonRoad()
   $scope.roads = roadData.Roads
 
+  $scope.delete = function(ID) {
+    console.log('delete ' + ID)
+    var request = new XMLHttpRequest()
+    request.open(
+      'DELETE',
+      'https://track.sim.vuw.ac.nz/api/' +
+        user +
+        '/delete.road.' +
+        ID +
+        '.json',
+      true
+    )
+    request.send(null)
+  }
+
   $scope.viewMore = function() {
     $scope.view = true
   }
@@ -103,7 +117,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'POST',
-      'https://track.sim.vuw.ac.nz/api/' + 'testuser' + '/update.road.json',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
@@ -117,18 +131,6 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     }
     console.log(roadData)
     request.send(JSON.stringify(roadData))
-  }
-
-  $scope.updateRoad = function() {
-    console.log(testRoadData)
-    var request = new XMLHttpRequest()
-    request.open(
-      'POST',
-      'https://track.sim.vuw.ac.nz/api/' + 'testuser' + '/update.road.json',
-      true
-    )
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    request.send(JSON.stringify(testRoadData))
   }
 })
 
@@ -153,6 +155,20 @@ var testRoadData = {
 }
 
 app.controller('projectController', function($scope, $location, $mdDialog) {
+  $scope.delete = function(ID) {
+    console.log('delete ' + ID.stringify)
+    var request = new XMLHttpRequest()
+    request.open(
+      'DELETE',
+      'https://track.sim.vuw.ac.nz/api/' +
+        user +
+        '/delete.project.' +
+        ID +
+        '.json',
+      true
+    )
+    request.send(null)
+  }
   $scope.editContractor = function() {
     console.log('open contractor form')
     $mdDialog.show({
@@ -195,9 +211,15 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
       StartDate: $scope.StartDate,
       EndDate: $scope.EndDate,
       Contrator: $scope.Contrator,
-      Problems: [{Author: $scope.PAuthor, Text: $scope.PText}],
-      Comments: [{Author: $scope.CAuthor, Text: $scope.CText}],
-      Works: [{Type: $scope.WType, SubContrators: $scope.SubContrator, Status : $scope.Status}]      
+      Problems: [{ Author: $scope.PAuthor, Text: $scope.PText }],
+      Comments: [{ Author: $scope.CAuthor, Text: $scope.CText }],
+      Works: [
+        {
+          Type: $scope.WType,
+          SubContrators: $scope.SubContrator,
+          Status: $scope.Status
+        }
+      ]
     }
     console.log(projectData)
     request.send(JSON.stringify(projectData))
