@@ -1,20 +1,26 @@
-<form id='addRoad'>
+<form id="addRoad" ng-submit="submitAddRoad()">
   <button ng-click="closeForm()">Close</button>
   <p>________________________________________________________</p>
   <div class="ID">ID</div>
-  <div class="IdInput"><input type='text'></div>
+  <div class="IdInput" ng-model="ID"><input type="text" /></div>
   <div class="code">Code</div>
-  <div class="codeInput"><input type='text'></div>
+  <div class="codeInput" ng-model="Code"><input type="text" /></div>
   <div class="type">Type</div>
-  <div class="typeInput"><input type='text'></div>
+  <div class="typeInput" ng-model="Type"><input type="text" /></div>
   <div class="section">Section</div>
-  <div class="sectionInput"><input type='text'></div>
+  <div class="sectionInput" ng-model="Section"><input type="text" /></div>
   <div class="location">Location</div>
-  <div class="locationInput"><input type="text"></div>
+  <div class="locationInput" ng-model="Location"><input type="text" /></div>
   <div class="gps">GPS</div>
-  <div class="gpsInput"><input type='text'></div>
-  <button ng-click="closeForm()" input type="submit" onclick="alert('Road added Sucessfully')"
-    value="Submit">Submit</button>
+  <div class="gpsInput" ng-model="GPS"><input type="text" /></div>
+  <button
+    ng-click="closeForm()"
+    input
+    type="submit"
+    onclick="alert('Road added Sucessfully')"
+    value="Submit"
+  >
+    Submit
+  </button>
   <button type="reset" value="Reset">Reset</button>
-
 </form>

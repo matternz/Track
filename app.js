@@ -20,7 +20,6 @@ app.config(function($routeProvider) {
 })
 
 app.controller('loginController', function($scope, $location) {
-
   $scope.submit = function() {
     if ($scope.username === undefined) {
       console.log('Username is empty')
@@ -99,6 +98,27 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     $location.path('/')
   }
 
+  $scope.submitAddRoad = function() {
+    console.log('submitting road')
+    var request = new XMLHttpRequest()
+    request.open(
+      'POST',
+      'https://track.sim.vuw.ac.nz/api/' + 'testuser' + '/update.road.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    var roadData = {
+      ID: $scope.ID,
+      Code: $scope.Code,
+      Type: $scope.Type,
+      Section: $scope.Section,
+      Location: $scope.Location,
+      GPS: $scope.GPS
+    }
+    console.log(roadData)
+    request.send(JSON.stringify(roadData))
+  }
+
   $scope.updateRoad = function() {
     console.log(testRoadData)
     var request = new XMLHttpRequest()
@@ -110,7 +130,6 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
     request.send(JSON.stringify(testRoadData))
   }
-
 })
 
 function requestJsonRoad() {
