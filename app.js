@@ -137,7 +137,7 @@ function requestJsonRoad() {
   request.open(
     'GET',
     'https://track.sim.vuw.ac.nz/api/' + user + '/road_dir.json',
-    true
+    false
   )
   request.send(null)
   return JSON.parse(request.responseText)
