@@ -13,14 +13,32 @@ body {
 footer {
   background-color: #94ce82;
 }
-
-.headerBar a {
-  float: center;
-  color: #1ab2ff;
-  text-align: right;
-  font-size: 30px;
-  padding: 20px;
+.headerBar ul {
+  list-style-type: none;
+  background-color: #333;
 }
+
+.headerBar li {
+  float: left;
+}
+
+.headerBar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.headerBar li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.headerBar .active {
+  background-color: #4CAF50;
+}
+
+
+
 
 #loginForm {
   border: 2px solid black;
@@ -154,26 +172,8 @@ footer {
    'IdInput'
    'road'
    'roadInput'
-   'startDate'
-   'startDateInput'
-   'endDate'
-   'endDateInput'
-   'contrator'
-   'contratorInput'
-   'pAuthor'
-   'pAuthorInput'
-   'pText'
-   'pTextInput'
-   'pAuthor'
-   'pAuthorInput'
-   'cText'
-   'cTextInput'
-   'cAuthor'
-   'cAuthorInput'
-   'wType'
-   'wTypeInput'
-   'subContrators'
-   'subContratorsInput'
+   'name'
+   'nameInput'
    'status'
    'statusInput';
   
@@ -183,6 +183,8 @@ footer {
   grid-template-areas:
   'ID'
   'IdInput'
+  'code'
+  'codeInput'
   'type'
   'typeInput'
   'section'
@@ -191,4 +193,17 @@ footer {
   'locationInput'
   'gps'
   'gpsInput';
+}
+
+
+input[type=text]:focus {
+  background-color: lightblue;
+}
+input[type=text] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
 }
