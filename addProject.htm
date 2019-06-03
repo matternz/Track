@@ -1,25 +1,31 @@
-<form id='AddProject'>
+<form id="AddProject" ng-submit="submitAddProject()">
   <button ng-click="closeForm()">Close</button>
   <p>________________________________________________________</p>
   <div class="ID">ID</div>
-  <div class="IdInput"><input type='text'></div>
+  <div class="IdInput"><input type="text" ng-model="ID" /></div>
   <div class="road">Road</div>
-  <div class="roadInput"><input type='text'></div>
+  <div class="roadInput"><input type="text" ng-model="Road" /></div>
   <div class="name">Name</div>
-  <div class="nameInput"><input type='text'></div>
+  <div class="nameInput"><input type="text" ng-model="Name" /></div>
   <div class="status">Status</div>
   <div class="statusInput">
-    <select>
+    <select ng-model="Status">
       <option value="open">Open</option>
       <option value="closed">Closed</option>
     </select>
     <div class="startDate">Start Date</div>
-    <div class="startDateInput"><input type='date'></div>
+    <div class="startDateInput"><input type="date" ng-model="StartDate" /></div>
     <div class="endDate">End Date</div>
-    <div class="endDateInput"><input type='date'></div>
-     </div>
-  <button ng-click="closeForm()" input type="submit" onclick="alert('Project added Sucessfully')"
-    value="Submit">Submit</button>
+    <div class="endDateInput"><input type="date" ng-model="EndDate" /></div>
+  </div>
+  <button
+    ng-click="closeForm()"
+    input
+    type="submit"
+    onclick="alert('Project added Sucessfully')"
+    value="Submit"
+  >
+    Submit
+  </button>
   <button type="reset" value="Reset">Reset</button>
-
 </form>

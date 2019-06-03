@@ -178,6 +178,28 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
       controller: 'projectController'
     })
   }
+
+  $scope.submitAddProject = function() {
+    console.log('submitting project')
+    var request = new XMLHttpRequest()
+    request.open(
+      'POST',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    var roadData = {
+      ID: $scope.ID,
+      Code: $scope.Code,
+      Type: $scope.Type,
+      Section: $scope.Section,
+      Location: $scope.Location,
+      GPS: $scope.GPS
+    }
+    console.log(roadData)
+    request.send(JSON.stringify(roadData))
+  }
+
   $scope.logOut = function() {
     console.log('log out')
     $location.path('/')
