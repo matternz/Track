@@ -184,7 +184,7 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'POST',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
