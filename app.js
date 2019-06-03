@@ -103,7 +103,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'POST',
-      'https://track.sim.vuw.ac.nz/api/' + 'testuser' + '/update.road.json',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
