@@ -3,6 +3,7 @@ var app = angular.module('myApp', ['ngRoute', 'ngMaterial'])
 var data = undefined
 var user = ''
 var eProject = undefined
+var eRoad = undefined
 app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
@@ -107,12 +108,31 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     })
   }
 
+  $scope.editRoad = function(ID) {
+    console.log('edit road ' + ID)
+    var request = new XMLHttpRequest()
+    request.open(
+      'GET',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/road.' + ID + '.json',
+      false
+    )
+    request.send(null)
+
+    $scope.eRoad = JSON.parse(request.responseText)
+    eRoad = $scope.eRoad
+    console.log($scope.eRoad)
+    $mdDialog.show({
+      templateUrl: 'editRoad.htm',
+      controller: 'roadController'
+    })
+  }
+
   $scope.logOut = function() {
     console.log('log out')
     $location.path('/')
   }
 
-  $scope.submitAddRoad = function() {
+  $scope.updateRoad = function() {
     console.log('submitting road')
     var request = new XMLHttpRequest()
     request.open(
@@ -145,17 +165,7 @@ function requestJsonRoad() {
   return JSON.parse(request.responseText)
 }
 
-var testRoadData = {
-  ID: '1',
-  Code: '2',
-  Type: '3',
-  Section: 'Kapiti',
-  Location: 'Kapiti	Interchange',
-  GPS: 'Latitude	123,	Longitude	456'
-}
-
 app.controller('projectController', function($scope, $location, $mdDialog) {
-
   $scope.delete = function(ID) {
     console.log('delete ' + ID.stringify)
     var request = new XMLHttpRequest()
@@ -184,7 +194,7 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     })
   }
 
-  $scope.submitAddProject = function() {
+  $scope.updateProject = function() {
     console.log('submitting project')
     var request = new XMLHttpRequest()
     request.open(
@@ -219,7 +229,7 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'GET',
-      'https://track.sim.vuw.ac.nz/api/' + 'norrismatt' + '/project.' + ID +'.json',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/project.' + ID + '.json',
       false
     )
     request.send(null)
@@ -229,39 +239,13 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     console.log($scope.eProject)
     $mdDialog.show({
       templateUrl: 'editProject.htm',
+      scope: $scope,
+      preserveScope: true,
       controller: 'projectController'
     })
   }
 
   $scope.eProject = eProject
-
-  $scope.submitEditProject = function(ID) {
-    var request = new XMLHttpRequest()
-    request.open(
-      'POST',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
-      true
-    )
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    var projectData = {
-      ID: $scope.ID,
-      Road: $scope.Road,
-      Status: $scope.Status,
-      StartDate: $scope.StartDate,
-      EndDate: $scope.EndDate,
-      Contrator: $scope.Contrator,
-      Problems: [{ Author: $scope.PAuthor, Text: $scope.PText }],
-      Comments: [{ Author: $scope.CAuthor, Text: $scope.CText }],
-      Works: [
-        {
-          Type: $scope.WType,
-          SubContractors: $scope.SubContrator,
-          Status: $scope.Status
-        }
-      ]
-    }
-    console.log(projectData)
-  }
 
   $scope.logOut = function() {
     console.log('log out')

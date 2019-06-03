@@ -1,29 +1,30 @@
-<form id="addRoad">
+<form id="addRoad" ng-submit="updateRoad()">
+    <form id="addRoad" >
   <button ng-click="closeForm()">Close</button>
   <p>________________________________________________________</p>
   <div class="ID">ID</div>
   <div class="IdInput">
-    <input type="text" ng-model="ID" value="{{ eProject.ID }}" />
+    <input type="text" ng-model="ID" value="{{ eRoad.ID }}" />
   </div>
   <div class="code">Code</div>
   <div class="codeInput">
-    <input type="text" ng-model="Code" value="{{ eProject.Code }}" />
+    <input type="text" ng-model="Code" value="{{ eRoad.Code }}" />
   </div>
   <div class="type">Type</div>
   <div class="typeInput">
-    <input type="text" ng-model="Type" value="{{ eProject.Type }}" />
+    <input type="text" ng-model="Type" value="{{ eRoad.Type }}" />
   </div>
   <div class="section">Section</div>
   <div class="sectionInput">
-    <input type="text" ng-model="Section" value="{{ eProject.Section }}" />
+    <input type="text" ng-model="Section" value="{{ eRoad.Section }}" />
   </div>
   <div class="location">Location</div>
   <div class="locationInput">
-    <input type="text" ng-model="Location" value="{{ eProject.Location }}" />
+    <input type="text" ng-model="Location" value="{{ eRoad.Location }}" />
   </div>
   <div class="gps">GPS</div>
   <div class="gpsInput">
-    <input type="text" ng-model="GPS" value="{{ eProject.GPS }}" />
+    <input type="text" ng-model="GPS" value="{{ eRoad.GPS }}" />
   </div>
   <button
     ng-click="closeForm()"

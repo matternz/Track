@@ -13,9 +13,10 @@
     </div>
 
     <ul style="list-style: none;">
+        <li ng-repeat='item in roads'>
       <div class="roadInnerContainer">
         <div class="roadObject">
-          <li ng-repeat='item in roads'>
+          
             <div class="id">
               <h3>ID:</h3>
             </div>
@@ -49,6 +50,8 @@
             <button ng-click="viewLess()" ng-show ="view">View Less</button>
             <button>Archive</button>
             <button ng-click="delete(item.ID)">Delete</button>
+            <button ng-click="editRoad(item.ID)">Edit</button>
+          </li>
     </ul>
 
   </div>

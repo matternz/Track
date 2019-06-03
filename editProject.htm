@@ -1,37 +1,25 @@
-<form id="AddProject">
+<form id="AddProject" ng-submit="updateProject()">
   <button ng-click="closeForm()">Close</button>
   <p>________________________________________________________</p>
   <div class="ID">ID</div>
   <div class="IdInput">
-    <input type="text" ng-model="ID" value="{{ eProject.ID }}" />
+    <input type="text" ng-model="ID" placeholder="{{ eProject.ID }}" />
   </div>
   <div class="road">Road</div>
   <div class="roadInput">
-    <input type="text" ng-model="Road" value="{{ eProject.Road }}" />
+    <input type="text" ng-model="Road" placeholder="{{ eProject.Road }}" />
   </div>
   <div class="startDate">Start Date</div>
   <div class="startDateInput">
-    <input
-      type="text"
-      ng-model="StartDate"
-      value="{{ eProject.StartDate }}"
-    />
+    <input type="text" ng-model="StartDate" placeholder="{{ eProject.StartDate }}" />
   </div>
   <div class="endDate">End Date</div>
   <div class="endDateInput">
-    <input
-      type="text"
-      ng-model="EndDate"
-      value="{{ eProject.EndDate }}"
-    />
+    <input type="text" ng-model="EndDate" placeholder="{{ eProject.EndDate }}" />
   </div>
   <div class="contractor">Contractor</div>
   <div class="contratorInput">
-    <input
-      type="text"
-      ng-model="Contrator"
-      value="{{ eProject.Contractor }}"
-    />
+    <input type="text" ng-model="Contrator" placeholder="{{ eProject.Contractor }}" />
   </div>
   <div class="problems">Problems</div>
   <div class="pAuthor">Author</div>
@@ -40,7 +28,7 @@
       type="text"
       ng-model="PAuthor"
       ng-repeat="pro in eProject.Problems"
-      value="{{ pro.Author }}"
+      placeholder="{{ pro.Author }}"
     />
   </div>
   <div class="pText">Text</div>
@@ -49,7 +37,7 @@
       type="text"
       ng-model="PText"
       ng-repeat="pro in eProject.Problems"
-      value="{{ pro.Text }}"
+      placeholder="{{ pro.Text }}"
     />
   </div>
   <div class="comments">Comments</div>
@@ -59,7 +47,7 @@
       type="text"
       ng-model="CAuthor"
       ng-repeat="com in eProject.Comments"
-      value="{{ com.Author }}"
+      placeholder="{{ com.Author }}"
     />
   </div>
   <div class="cText">Text</div>
@@ -68,7 +56,7 @@
       type="text"
       ng-model="CText"
       ng-repeat="com in eProject.Comments"
-      value="{{ com.Text }}"
+      placeholder="{{ com.Text }}"
     />
   </div>
   <div class="works">Works</div>
@@ -78,7 +66,7 @@
       type="text"
       ng-model="WType"
       ng-repeat="wor in eProject.Works"
-      value="{{ wor.Type }}"
+      placeholder="{{ wor.Type }}"
     />
   </div>
   <div class="subContractors">SubContractors</div>
@@ -87,7 +75,7 @@
       type="text"
       ng-model="SubContractors"
       ng-repeat="wor in eProject.Works"
-      value="{{ work.SubContractors }}"
+      placeholder="{{ work.SubContractors }}"
     />
   </div>
   <div class="status">Status</div>
@@ -96,7 +84,7 @@
       type="text"
       ng-model="Status"
       ng-repeat="wor in eProject.Works"
-      value="{{ wor.Status }}"
+      placeholder="{{ wor.Status }}"
     />
   </div>
   <button
@@ -104,9 +92,9 @@
     input
     type="submit"
     onclick="alert('Project added Sucessfully')"
-    value="Submit"
+    placeholder="Submit"
   >
     Submit
   </button>
-  <button type="reset" value="Reset">Reset</button>
+  <button type="reset" placeholder="Reset">Reset</button>
 </form>
