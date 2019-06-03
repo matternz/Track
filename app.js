@@ -2,7 +2,7 @@ var app = angular.module('myApp', ['ngRoute', 'ngMaterial'])
 
 var data = undefined
 var user = ''
-
+var eProject = undefined
 app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
@@ -155,6 +155,7 @@ var testRoadData = {
 }
 
 app.controller('projectController', function($scope, $location, $mdDialog) {
+
   $scope.delete = function(ID) {
     console.log('delete ' + ID.stringify)
     var request = new XMLHttpRequest()
@@ -169,24 +170,12 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     )
     request.send(null)
   }
-  $scope.editContractor = function() {
-    console.log('open contractor form')
-    $mdDialog.show({
-      templateUrl: 'Contractor.htm',
-      controller: 'projectController'
-    })
-  }
-  $scope.problemLog = function() {
-    console.log('open Problem Log')
-    $mdDialog.show({
-      templateUrl: 'ProblemLog.htm',
-      controller: 'projectController'
-    })
-  }
+
   $scope.closeForm = function() {
     console.log('closeForm')
     $mdDialog.hide()
   }
+
   $scope.addProject = function() {
     console.log('add project form')
     $mdDialog.show({
@@ -216,13 +205,62 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
       Works: [
         {
           Type: $scope.WType,
-          SubContrators: $scope.SubContrator,
+          SubContractors: $scope.SubContrator,
           Status: $scope.Status
         }
       ]
     }
     console.log(projectData)
     request.send(JSON.stringify(projectData))
+  }
+
+  $scope.editProject = function(ID) {
+    console.log('edit project ' + ID)
+    var request = new XMLHttpRequest()
+    request.open(
+      'GET',
+      'https://track.sim.vuw.ac.nz/api/' + 'norrismatt' + '/project.' + ID +'.json',
+      false
+    )
+    request.send(null)
+
+    $scope.eProject = JSON.parse(request.responseText)
+    eProject = $scope.eProject
+    console.log($scope.eProject)
+    $mdDialog.show({
+      templateUrl: 'editProject.htm',
+      controller: 'projectController'
+    })
+  }
+
+  $scope.eProject = eProject
+
+  $scope.submitEditProject = function(ID) {
+    var request = new XMLHttpRequest()
+    request.open(
+      'POST',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    var projectData = {
+      ID: $scope.ID,
+      Road: $scope.Road,
+      Status: $scope.Status,
+      StartDate: $scope.StartDate,
+      EndDate: $scope.EndDate,
+      Contrator: $scope.Contrator,
+      Problems: [{ Author: $scope.PAuthor, Text: $scope.PText }],
+      Comments: [{ Author: $scope.CAuthor, Text: $scope.CText }],
+      Works: [
+        {
+          Type: $scope.WType,
+          SubContractors: $scope.SubContrator,
+          Status: $scope.Status
+        }
+      ]
+    }
+    console.log(projectData)
   }
 
   $scope.logOut = function() {

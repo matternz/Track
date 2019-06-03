@@ -1,0 +1,112 @@
+<form id="AddProject" ng-submit="submitAddProject()">
+  <button ng-click="closeForm()">Close</button>
+  <p>________________________________________________________</p>
+  <div class="ID">ID</div>
+  <div class="IdInput">
+    <input type="text" ng-model="ID" placeholder="{{ eProject.ID }}" />
+  </div>
+  <div class="road">Road</div>
+  <div class="roadInput">
+    <input type="text" ng-model="Road" placeholder="{{ eProject.Road }}" />
+  </div>
+  <div class="startDate">Start Date</div>
+  <div class="startDateInput">
+    <input
+      type="text"
+      ng-model="StartDate"
+      placeholder="{{ eProject.StartDate }}"
+    />
+  </div>
+  <div class="endDate">End Date</div>
+  <div class="endDateInput">
+    <input
+      type="text"
+      ng-model="EndDate"
+      placeholder="{{ eProject.EndDate }}"
+    />
+  </div>
+  <div class="contractor">Contractor</div>
+  <div class="contratorInput">
+    <input
+      type="text"
+      ng-model="Contrator"
+      placeholder="{{ eProject.Contractor }}"
+    />
+  </div>
+  <div class="problems">Problems</div>
+  <div class="pAuthor">Author</div>
+  <div class="pAuthorInput">
+    <input
+      type="text"
+      ng-model="PAuthor"
+      ng-repeat="pro in eProject.Problems"
+      placeholder="{{ pro.Author }}"
+    />
+  </div>
+  <div class="pText">Text</div>
+  <div class="pTextInput">
+    <input
+      type="text"
+      ng-model="PText"
+      ng-repeat="pro in eProject.Problems"
+      placeholder="{{ pro.Text }}"
+    />
+  </div>
+  <div class="comments">Comments</div>
+  <div class="cAuthor">Author</div>
+  <div class="cAuthorInput">
+    <input
+      type="text"
+      ng-model="CAuthor"
+      ng-repeat="com in eProject.Comments"
+      placeholder="{{ com.Author }}"
+    />
+  </div>
+  <div class="cText">Text</div>
+  <div class="cTextInput">
+    <input
+      type="text"
+      ng-model="CText"
+      ng-repeat="com in eProject.Comments"
+      placeholder="{{ com.Text }}"
+    />
+  </div>
+  <div class="works">Works</div>
+  <div class="wType">Type</div>
+  <div class="wTypeInput">
+    <input
+      type="text"
+      ng-model="WType"
+      ng-repeat="wor in eProject.Works"
+      placeholder="{{ wor.Type }}"
+    />
+  </div>
+  <div class="subContractors">SubContractors</div>
+  <div class="subContractorsInput">
+    <input
+      type="text"
+      ng-model="SubContractors"
+      ng-repeat="wor in eProject.Works"
+      placeholder="{{ work.SubContractors }}"
+    />
+  </div>
+  <div class="status">Status</div>
+  <div class="statusInput">
+    <input
+      type="text"
+      ng-model="Status"
+      ng-repeat="wor in eProject.Works"
+      placeholder="{{ wor.Status }}"
+    />
+  </div>
+  <button
+    ng-click="closeForm()"
+    input
+    type="submit"
+    onclick="alert('Project added Sucessfully')"
+    value="Submit"
+  >
+    Submit
+  </button>
+  <button type="reset" value="Reset">Reset</button>
+</form>
