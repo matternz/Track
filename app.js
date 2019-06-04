@@ -127,52 +127,6 @@ app.controller('roadController', function ($scope, $location, $mdDialog) {
     })
   }
 
-  $scope.closeRoad = function (ID) {
-    console.log('close road ' + ID)
-    var request = new XMLHttpRequest()
-    request.open(
-      'GET',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/road.' + ID + '.json',
-      false
-    )
-    request.send(null)
-
-    road = JSON.parse(request.responseText)
-    console.log(road)
-    road.Status = 'Closed'
-    request = new XMLHttpRequest()
-    request.open(
-      'POST',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
-      true
-    )
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    request.send(JSON.stringify(road))
-  }
-
-  $scope.openRoad = function (ID) {
-    console.log('open road ' + ID)
-    var request = new XMLHttpRequest()
-    request.open(
-      'GET',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/road.' + ID + '.json',
-      false
-    )
-    request.send(null)
-
-    road = JSON.parse(request.responseText)
-    console.log(road)
-    road.Status = 'Open'
-    request = new XMLHttpRequest()
-    request.open(
-      'POST',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.road.json',
-      true
-    )
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    request.send(JSON.stringify(road))
-  }
-
   $scope.logOut = function () {
     console.log('log out')
     $location.path('/')
