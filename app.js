@@ -4,7 +4,7 @@ var data = undefined
 var user = ''
 var eProject = undefined
 var eRoad = undefined
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'login.htm',
@@ -20,8 +20,8 @@ app.config(function($routeProvider) {
     })
 })
 
-app.controller('loginController', function($scope, $location) {
-  $scope.submit = function() {
+app.controller('loginController', function ($scope, $location) {
+  $scope.submit = function () {
     if ($scope.username === undefined) {
       console.log('Username is empty')
       alert('Username is empty')
@@ -44,7 +44,7 @@ app.controller('loginController', function($scope, $location) {
   }
 })
 
-function requestJsonUsers(username) {
+function requestJsonUsers (username) {
   var request = new XMLHttpRequest()
   request.open(
     'GET',
@@ -55,9 +55,9 @@ function requestJsonUsers(username) {
   return JSON.parse(request.responseText)
 }
 
-function validateUser(json, username, password) {
+function validateUser (json, username, password) {
   var success = false
-  json.Users.forEach(function(element) {
+  json.Users.forEach(function (element) {
     if (element.LoginName == username) {
       if (element.Password == password) {
         console.log('success')
@@ -68,11 +68,11 @@ function validateUser(json, username, password) {
   return success
 }
 
-app.controller('roadController', function($scope, $location, $mdDialog) {
+app.controller('roadController', function ($scope, $location, $mdDialog) {
   roadData = requestJsonRoad()
   $scope.roads = roadData.Roads
 
-  $scope.delete = function(ID) {
+  $scope.delete = function (ID) {
     console.log('delete ' + ID)
     var request = new XMLHttpRequest()
     request.open(
@@ -87,20 +87,20 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     request.send(null)
   }
 
-  $scope.viewMore = function() {
+  $scope.viewMore = function () {
     $scope.view = true
   }
 
-  $scope.viewLess = function() {
+  $scope.viewLess = function () {
     $scope.view = false
   }
 
-  $scope.closeForm = function() {
+  $scope.closeForm = function () {
     console.log('closeForm')
     $mdDialog.hide()
   }
 
-  $scope.addRoad = function() {
+  $scope.addRoad = function () {
     console.log('add road form')
     $mdDialog.show({
       templateUrl: 'addRoad.htm',
@@ -108,7 +108,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     })
   }
 
-  $scope.editRoad = function(ID) {
+  $scope.editRoad = function (ID) {
     console.log('edit road ' + ID)
     var request = new XMLHttpRequest()
     request.open(
@@ -127,7 +127,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     })
   }
 
-  $scope.closeRoad = function(ID) {
+  $scope.closeRoad = function (ID) {
     console.log('close road ' + ID)
     var request = new XMLHttpRequest()
     request.open(
@@ -137,10 +137,9 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     )
     request.send(null)
 
-    $scope.eRoad = JSON.parse(request.responseText)
-    eRoad = $scope.eRoad
-    console.log($scope.eRoad)
-    eRoad.Status = "Closed"
+    road = JSON.parse(request.responseText)
+    console.log(road)
+    road.Status = 'Closed'
     request = new XMLHttpRequest()
     request.open(
       'POST',
@@ -148,10 +147,10 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    request.send(JSON.stringify(eRoad))
+    request.send(JSON.stringify(road))
   }
 
-  $scope.openRoad = function(ID) {
+  $scope.openRoad = function (ID) {
     console.log('open road ' + ID)
     var request = new XMLHttpRequest()
     request.open(
@@ -161,10 +160,9 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
     )
     request.send(null)
 
-    $scope.eRoad = JSON.parse(request.responseText)
-    eRoad = $scope.eRoad
-    console.log($scope.eRoad)
-    eRoad.Status = "Open"
+    road = JSON.parse(request.responseText)
+    console.log(road)
+    road.Status = 'Open'
     request = new XMLHttpRequest()
     request.open(
       'POST',
@@ -172,15 +170,15 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
       true
     )
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    request.send(JSON.stringify(eRoad))
+    request.send(JSON.stringify(road))
   }
 
-  $scope.logOut = function() {
+  $scope.logOut = function () {
     console.log('log out')
     $location.path('/')
   }
 
-  $scope.updateRoad = function() {
+  $scope.updateRoad = function () {
     console.log('submitting road')
     var request = new XMLHttpRequest()
     request.open(
@@ -202,7 +200,7 @@ app.controller('roadController', function($scope, $location, $mdDialog) {
   }
 })
 
-function requestJsonRoad() {
+function requestJsonRoad () {
   var request = new XMLHttpRequest()
   request.open(
     'GET',
@@ -213,8 +211,8 @@ function requestJsonRoad() {
   return JSON.parse(request.responseText)
 }
 
-app.controller('projectController', function($scope, $location, $mdDialog) {
-  $scope.delete = function(ID) {
+app.controller('projectController', function ($scope, $location, $mdDialog) {
+  $scope.delete = function (ID) {
     console.log('delete ' + ID.stringify)
     var request = new XMLHttpRequest()
     request.open(
@@ -229,12 +227,12 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     request.send(null)
   }
 
-  $scope.closeForm = function() {
+  $scope.closeForm = function () {
     console.log('closeForm')
     $mdDialog.hide()
   }
 
-  $scope.addProject = function() {
+  $scope.addProject = function () {
     console.log('add project form')
     $mdDialog.show({
       templateUrl: 'addProject.htm',
@@ -242,7 +240,7 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     })
   }
 
-  $scope.updateProject = function() {
+  $scope.updateProject = function () {
     console.log('submitting project')
     var request = new XMLHttpRequest()
     request.open(
@@ -272,7 +270,53 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
     request.send(JSON.stringify(projectData))
   }
 
-  $scope.editProject = function(ID) {
+  $scope.openProject = function (id) {
+    console.log('open project')
+    var request = new XMLHttpRequest()
+    request.open(
+      'GET',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+
+    project = JSON.parse(request.responseText)
+    console.log(project)
+    project.Status = 'Open'
+
+    request.open(
+      'POST',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    request.send(JSON.stringify(project))
+  }
+
+  $scope.closeProject = function (id) {
+    console.log('close project')
+    var request = new XMLHttpRequest()
+    request.open(
+      'GET',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+
+    project = JSON.parse(request.responseText)
+    console.log(project)
+    project.Status = 'Closed'
+
+    request.open(
+      'POST',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
+      true
+    )
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    request.send(JSON.stringify(project))
+  }
+
+  $scope.editProject = function (ID) {
     console.log('edit project ' + ID)
     var request = new XMLHttpRequest()
     request.open(
@@ -295,16 +339,16 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
 
   $scope.eProject = eProject
 
-  $scope.logOut = function() {
+  $scope.logOut = function () {
     console.log('log out')
     $location.path('/')
   }
 
-  $scope.viewMore = function() {
+  $scope.viewMore = function () {
     $scope.view = true
   }
 
-  $scope.viewLess = function() {
+  $scope.viewLess = function () {
     $scope.view = false
   }
 
@@ -313,7 +357,7 @@ app.controller('projectController', function($scope, $location, $mdDialog) {
   console.log(projectData.Projects)
 })
 
-function requestJsonProject() {
+function requestJsonProject () {
   var request = new XMLHttpRequest()
   request.open(
     'GET',
