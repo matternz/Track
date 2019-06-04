@@ -206,6 +206,7 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
     var projectData = {
       ID: $scope.ID,
       Road: $scope.Road,
+      Name: $scope.Name,
       Status: $scope.Status,
       StartDate: $scope.StartDate,
       EndDate: $scope.EndDate,
