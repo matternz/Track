@@ -229,15 +229,16 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'GET',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
-      true
+      'https://track.sim.vuw.ac.nz/api/' + user + '/project.' + id + '.json',
+      false
     )
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-
-    project = JSON.parse(request.responseText)
+  
+    request.send(null)
+    var project = JSON.parse(request.responseText)
     console.log(project)
     project.Status = 'Open'
-
+    console.log(project)
+    request = new XMLHttpRequest()
     request.open(
       'POST',
       'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
@@ -252,15 +253,15 @@ app.controller('projectController', function ($scope, $location, $mdDialog) {
     var request = new XMLHttpRequest()
     request.open(
       'GET',
-      'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
+      'https://track.sim.vuw.ac.nz/api/' + user + '/project.' + id + '.json',
       true
     )
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-
-    project = JSON.parse(request.responseText)
+    request.send(null)
+    var project = JSON.parse(request.responseText)
     console.log(project)
     project.Status = 'Closed'
-
+    console.log(project)
+    request = new XMLHttpRequest()
     request.open(
       'POST',
       'https://track.sim.vuw.ac.nz/api/' + user + '/update.project.json',
