@@ -48,7 +48,8 @@
             </div>
             <button ng-click="viewMore()" ng-hide ="view">View More</button>
             <button ng-click="viewLess()" ng-show ="view">View Less</button>
-            <button>Archive</button>
+            <button ng-click="openRoad(item.ID)">Open</button>
+            <button ng-click="closeRoad(item.ID)">Close</button>
             <button ng-click="delete(item.ID)">Delete</button>
             <button ng-click="editRoad(item.ID)">Edit</button>
           </li>
